@@ -16,7 +16,5 @@ public class Points {
         points += 60;
         System.out.println(points);
 
-
     }
 }
-
