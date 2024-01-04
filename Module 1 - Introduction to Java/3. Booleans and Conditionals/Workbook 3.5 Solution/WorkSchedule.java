@@ -1,7 +1,7 @@
 public class WorkSchedule {
     public static void main(String[] args) {
-        int day = 3;  
-        boolean holiday = true;
+        int day = 3;
+        boolean holiday = false;
 
         if (holiday) {
             System.out.println("woohoo, no work!");
