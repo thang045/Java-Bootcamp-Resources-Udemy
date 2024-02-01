@@ -16,7 +16,6 @@ public class TicTacToe {
     };
 
     // Task 2: Call the function printBoard();
-    printBoard(board);
 
     /*
      * { Task 3: Loop through turns.
@@ -39,6 +38,19 @@ public class TicTacToe {
      * 
      * }
      */
+
+    for (int i = 0; i < 9; i++) {
+      if (i % 2 == 0) {
+        System.out.println("Turn: X");
+        int[] spot = askUser(board);
+        board[spot[0]][spot[1]] = 'X';
+      } else {
+        System.out.println("Turn: O");
+        int[] spot = askUser(board);
+        board[spot[0]][spot[1]] = '0';
+      }
+      printBoard(board);
+    }
 
     scan.close();
   }
@@ -83,6 +95,29 @@ public class TicTacToe {
    *         3. Return the row and column in an int[] array.
    * 
    */
+
+  public static int[] askUser(char[][] board) {
+    System.out.print("- Pick a row and column number: ");
+    int row = scan.nextInt();
+    int element = scan.nextInt();
+
+    // Checking the typed position is grater than available position
+    while (row > 2 || element > 2) {
+      System.out.print("Spot must under 2 2 position, please try one more time: ");
+      row = scan.nextInt();
+      element = scan.nextInt();
+    }
+
+    // Checking the typed is taken
+    while (board[row][element] != '_') {
+      System.out.print("Spot is taken, please try one more time: ");
+      row = scan.nextInt();
+      element = scan.nextInt();
+    }
+
+    return new int[] { row, element };
+
+  }
 
   /**
    * Task 6 - Write a function that determines the winner
